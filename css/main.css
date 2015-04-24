@@ -1,0 +1,14 @@
+body {
+  padding-top: 64px;
+}
+.main {
+  padding: 40px 0px;
+}
+#lista > table tr {
+  height: 70px;
+  max-height: 70px;
+}
+#lista > table img {
+  max-height: 70px;
+  max-width: 100px;
+}
