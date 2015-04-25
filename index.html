@@ -9,7 +9,7 @@
 
     <!-- Bootstrap -->
     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="css/bootswatch-paper.min.css" rel="stylesheet">
+    <link href="css/bootswatch-flatly.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -21,30 +21,74 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <!-- <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
             <span class="sr-only">Toggle navigation</span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-          </button>
+          </button> -->
           <a class="navbar-brand" href="#">Frota</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <!-- <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li> -->
           </ul>
         </div>
       </div>
     </nav>
 
-    <div class="main">
+    <div class="main" ng-controller="FrotaController as frota">
+      <div id="new" class="container">
+        <form name="carroForm" class="form-horizontal" ng-controller="CarroController as carroCtrl" ng-submit="carroForm.$valid && carroCtrl.addCarro(frota)" novalidate>
+          <div class="form-group">
+            <label for="carro_modelo" class="col-lg-2 control-label">Modelo *</label>
+            <div class="col-lg-10">
+              <input ng-model="carroCtrl.carro.modelo" type="text" id="carro_modelo" name="carro[modelo]" class="form-control" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="carro_combustivel" class="col-lg-2 control-label">Combustível</label>
+            <div class="col-lg-10">
+              <input ng-model="carroCtrl.carro.combustivel" type="text" id="carro_combustivel" name="carro[combustivel]" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="carro_marca" class="col-lg-2 control-label">Marca *</label>
+            <div class="col-lg-10">
+              <input ng-model="carroCtrl.carro.marca" type="text" id="carro_marca" name="carro[marca]" class="form-control" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="carro_placa" class="col-lg-2 control-label">Placa *</label>
+            <div class="col-lg-10">
+              <input ng-model="carroCtrl.carro.placa" type="text" id="carro_placa" name="carro[placa]" class="form-control" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="carro_cor" class="col-lg-2 control-label">Cor</label>
+            <div class="col-lg-10">
+              <input ng-model="carroCtrl.carro.cor" type="text" id="carro_cor" name="carro[cor]" class="form-control" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="carro_imagem" class="col-lg-2 control-label">Imagem</label>
+            <div class="col-lg-10">
+              <input ng-model="carroCtrl.carro.imagem" type="text" id="carro_imagem" name="carro[imagem]" class="form-control" />
+            </div>
+          </div>
+          <div class="col-lg-10 col-lg-offset-2">
+            <button type="reset" class="btn btn-default">Cancel</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
 
-      <div id="lista" class="container" ng-controller="FrotaController as frota">
+      <div id="lista" class="container">
         <table>
           <tr ng-repeat="carro in frota.products | orderBy:'modelo'">
             <td><img ng-src="{{carro.imagem}}" /></td>

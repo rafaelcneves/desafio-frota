@@ -5,6 +5,15 @@
     this.products = frota;
   });
 
+  app.controller("CarroController", function(){
+    this.carro = {};
+
+    this.addCarro = function(frota){
+      frota.products.push(this.carro);
+      this.carro = {};
+    };
+  })
+
   var frota = [
     {
       "combustivel": "Flex",

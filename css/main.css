@@ -12,3 +12,9 @@ body {
   max-height: 70px;
   max-width: 100px;
 }
+.ng-invalid-required.ng-dirty{
+	border-color:red;
+}
+.ng-valid.ng-dirty{
+	border-color:green;
+}
