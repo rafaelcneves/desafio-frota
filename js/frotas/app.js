@@ -1,36 +1,40 @@
 (function(){
   var app = angular.module("frota", []);
 
-  app.controller("FrotaController", function(){
-    this.products = frota;
-    this.carro = {};
+  app.controller("FrotaController", ["$scope", function($scope){
+    $scope.products = frota;
+    $scope.product = {};
 
-    this.newCarro = function(){
-      this.carro = {};
+    $scope.newCarro = function(){
+      $scope.product = {};
       $("#new.modal").modal();
     };
 
-    this.createCarro = function(){
-      this.products.push(this.carro);
+    $scope.createCarro = function(){
+      $scope.products.push($scope.product);
       $("#new.modal").modal("hide");
     };
 
-    this.editCarro = function(carro){
-      this.carro = carro;
+    $scope.editCarro = function(carro){
+      $scope.product = carro;
       $("#edit.modal").modal();
     };
 
-    this.updateCarro = function(){
+    $scope.updateCarro = function(){
       $("#edit.modal").modal("hide");
     }
 
-    this.deleteCarro = function(carro){
-      var index = this.products.indexOf(carro);
+    $scope.deleteCarro = function(carro){
+      var index = $scope.products.indexOf(carro);
       if (index != -1) {
-        this.products.splice(index, 1);
+        $scope.products.splice(index, 1);
       }
     };
-  });
+
+    $scope.search = function (row) {
+      return (angular.lowercase(row.marca || '').indexOf($scope.query || '') !== -1 || angular.lowercase(row.cor || '').indexOf($scope.query || '') !== -1);
+    };
+  }]);
 
   app.directive("carroForm", function(){
     return {
