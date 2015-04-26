@@ -4,20 +4,37 @@
   app.controller("FrotaController", function(){
     this.products = frota;
 
-    this.carro = {};
+    this.newCarro = function(){
+      this.carro = {};
+      $("#new.modal").modal();
+    };
+
+    this.createCarro = function(){
+      this.products.push(this.carro);
+      this.carro = {};
+      $("#new.modal").modal("hide");
+    };
 
     this.editCarro = function(carro){
       this.carro = carro;
+      $("#edit.modal").modal();
     };
+
+    this.updateCarro = function(){
+      this.carro = {};
+      $("#edit.modal").modal("hide");
+    }
 
     this.deleteCarro = function(carro){
       this.products.pop(carro);
     };
+  });
 
-    this.addCarro = function(){
-      this.products.push(this.carro);
-      this.carro = {};
-    };
+  app.directive("carroForm", function(){
+    return {
+      restrict: "A",
+      templateUrl: "templates/form.html"
+    }
   });
 
   var frota = [
