@@ -59,7 +59,7 @@
                   <th></th>
                 </tr>
                 <tr ng-repeat="carro in products | filter: search">
-                  <td><img ng-src="{{carro.imagem}}" /></td>
+                  <td><img ng-if="carro.imagem" ng-src="{{carro.imagem}}" /></td>
                   <td>{{carro.modelo}}</td>
                   <td>{{carro.marca}}</td>
                   <td>{{carro.placa}}</td>
