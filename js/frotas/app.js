@@ -3,16 +3,22 @@
 
   app.controller("FrotaController", function(){
     this.products = frota;
-  });
 
-  app.controller("CarroController", function(){
     this.carro = {};
 
-    this.addCarro = function(frota){
-      frota.products.push(this.carro);
+    this.editCarro = function(carro){
+      this.carro = carro;
+    };
+
+    this.deleteCarro = function(carro){
+      this.products.pop(carro);
+    };
+
+    this.addCarro = function(){
+      this.products.push(this.carro);
       this.carro = {};
     };
-  })
+  });
 
   var frota = [
     {
