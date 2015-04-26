@@ -25,7 +25,10 @@
     }
 
     this.deleteCarro = function(carro){
-      this.products.pop(carro);
+      var index = this.products.indexOf(carro);
+      if (index != -1) {
+        this.products.splice(index, 1);
+      }
     };
   });
 

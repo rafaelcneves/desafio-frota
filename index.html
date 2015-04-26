@@ -30,6 +30,11 @@
             <li><a href="#" ng-click="frota.newCarro()">Novo</a></li>
             <!-- <li><a href="#contact">Contact</a></li> -->
           </ul>
+          <form class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search" ng-model="query">
+            </div>
+          </form>
         </div>
       </div>
     </nav>
@@ -53,7 +58,7 @@
                   <th></th>
                   <th></th>
                 </tr>
-                <tr ng-repeat="carro in frota.products | orderBy:'modelo'">
+                <tr ng-repeat="carro in frota.products | filter:{marca: query, cor: query}">
                   <td><img ng-src="{{carro.imagem}}" /></td>
                   <td>{{carro.modelo}}</td>
                   <td>{{carro.marca}}</td>
