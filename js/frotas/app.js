@@ -3,6 +3,7 @@
 
   app.controller("FrotaController", function(){
     this.products = frota;
+    this.carro = {};
 
     this.newCarro = function(){
       this.carro = {};
@@ -11,7 +12,6 @@
 
     this.createCarro = function(){
       this.products.push(this.carro);
-      this.carro = {};
       $("#new.modal").modal("hide");
     };
 
@@ -21,7 +21,6 @@
     };
 
     this.updateCarro = function(){
-      this.carro = {};
       $("#edit.modal").modal("hide");
     }
 

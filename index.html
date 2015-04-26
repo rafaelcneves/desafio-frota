@@ -46,9 +46,9 @@
                 <tr>
                   <th></th>
                   <th>Modelo</th>
-                  <th>Combustivel</th>
                   <th>Marca</th>
                   <th>Placa</th>
+                  <th>Combustivel</th>
                   <th>Cor</th>
                   <th></th>
                   <th></th>
@@ -56,9 +56,9 @@
                 <tr ng-repeat="carro in frota.products | orderBy:'modelo'">
                   <td><img ng-src="{{carro.imagem}}" /></td>
                   <td>{{carro.modelo}}</td>
-                  <td>{{carro.combustivel}}</td>
                   <td>{{carro.marca}}</td>
                   <td>{{carro.placa}}</td>
+                  <td>{{carro.combustivel}}</td>
                   <td>{{carro.cor}}</td>
                   <td><a href="#" ng-click="frota.editCarro(carro)">Editar</a></td>
                   <td><a href="#" ng-click="frota.deleteCarro(carro)">Excluir</a></td>
