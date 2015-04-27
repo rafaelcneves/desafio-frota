@@ -55,7 +55,7 @@
                   <th></th>
                 </tr>
                 <tr ng-repeat="carro in filteredProducts">
-                  <td><img ng-if="carro.imagem" ng-src="{{carro.imagem}}" /></td>
+                  <td><img ng-if="getImage(carro)" ng-src="{{getImage(carro)}}" /></td>
                   <td>{{carro.modelo}}</td>
                   <td>{{carro.marca}}</td>
                   <td>{{carro.placa}}</td>
@@ -67,7 +67,7 @@
               </table>
             </div>
             <div class="panel-footer">
-              <pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" items-per-page="itemsPerPage"></pagination>
+              <pagination total-items="totalItems" ng-model="currentPage" class="pagination-sm" previous-text="&lsaquo;" next-text="&rsaquo;" items-per-page="itemsPerPage" max-size="maxSize"></pagination>
             </div>
           </div>
         </div>

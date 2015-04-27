@@ -5,11 +5,16 @@
     $scope.products = frota;
     $scope.product = {};
 
+    $scope.getImage = function(carro){
+      return carro.imagem || "http://s.glbimg.com/jo/g1/f/original/2011/08/29/montadoras_" + angular.lowercase(carro.marca) + ".png";
+    }
+
     // Paging + search
 
     $scope.totalItems = $scope.products.length;
     $scope.currentPage = 1;
     $scope.itemsPerPage = 5;
+    $scope.maxSize = 5;
 
     $scope.$watch('currentPage + products + query', function() {
       var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
@@ -64,7 +69,7 @@
     {
       "combustivel": "Flex",
       "imagem": null,
-      "marca": "Volkswagem",
+      "marca": "Volkswagen",
       "modelo": "Gol",
       "placa": "FFF­5498",
       "cor": "Vermelho"
@@ -72,7 +77,7 @@
     {
       "combustivel": "Gasolina",
       "imagem": null,
-      "marca": "Volkswagem",
+      "marca": "Volkswagen",
       "modelo": "Fox",
       "placa": "FOX­4125",
       "cor": null
