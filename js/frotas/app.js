@@ -1,9 +1,30 @@
 (function(){
-  var app = angular.module("frota", []);
+  var app = angular.module("frota", ['ui.bootstrap']);
 
-  app.controller("FrotaController", ["$scope", function($scope){
+  app.controller("FrotaController", function($scope, $filter){
     $scope.products = frota;
     $scope.product = {};
+
+    // Paging + search
+
+    $scope.totalItems = $scope.products.length;
+    $scope.currentPage = 1;
+    $scope.itemsPerPage = 5;
+
+    $scope.$watch('currentPage + products + query', function() {
+      var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
+          end = begin + $scope.itemsPerPage;
+
+      $scope.filteredProducts = $filter('filter')($scope.products, $scope.search);
+      $scope.totalItems = $scope.filteredProducts.length;
+      $scope.filteredProducts = $scope.filteredProducts.slice(begin, end);
+    });
+
+    $scope.search = function (row) {
+      return (angular.lowercase(row.marca || '').indexOf($scope.query || '') !== -1 || angular.lowercase(row.cor || '').indexOf($scope.query || '') !== -1);
+    };
+
+    // Crud Carro
 
     $scope.newCarro = function(){
       $scope.product = {};
@@ -30,11 +51,7 @@
         $scope.products.splice(index, 1);
       }
     };
-
-    $scope.search = function (row) {
-      return (angular.lowercase(row.marca || '').indexOf($scope.query || '') !== -1 || angular.lowercase(row.cor || '').indexOf($scope.query || '') !== -1);
-    };
-  }]);
+  });
 
   app.directive("carroForm", function(){
     return {
@@ -44,6 +61,54 @@
   });
 
   var frota = [
+    {
+      "combustivel": "Flex",
+      "imagem": null,
+      "marca": "Volkswagem",
+      "modelo": "Gol",
+      "placa": "FFF­5498",
+      "cor": "Vermelho"
+    },
+    {
+      "combustivel": "Gasolina",
+      "imagem": null,
+      "marca": "Volkswagem",
+      "modelo": "Fox",
+      "placa": "FOX­4125",
+      "cor": null
+    },
+    {
+      "combustivel": "Flex",
+      "imagem": null,
+      "marca": "Volkswagem",
+      "modelo": "Gol",
+      "placa": "FFF­5498",
+      "cor": "Vermelho"
+    },
+    {
+      "combustivel": "Gasolina",
+      "imagem": null,
+      "marca": "Volkswagem",
+      "modelo": "Fox",
+      "placa": "FOX­4125",
+      "cor": null
+    },
+    {
+      "combustivel": "Flex",
+      "imagem": null,
+      "marca": "Volkswagem",
+      "modelo": "Gol",
+      "placa": "FFF­5498",
+      "cor": "Vermelho"
+    },
+    {
+      "combustivel": "Gasolina",
+      "imagem": null,
+      "marca": "Volkswagem",
+      "modelo": "Fox",
+      "placa": "FOX­4125",
+      "cor": null
+    },
     {
       "combustivel": "Flex",
       "imagem": null,
