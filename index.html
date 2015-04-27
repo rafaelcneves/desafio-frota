@@ -55,7 +55,7 @@
                   <th></th>
                 </tr>
                 <tr ng-repeat="carro in filteredProducts">
-                  <td><img ng-if="getImage(carro)" ng-src="{{getImage(carro)}}" /></td>
+                  <td><img ng-src="{{getImage(carro)}}" onerror="this.src=''" /></td>
                   <td>{{carro.modelo}}</td>
                   <td>{{carro.marca}}</td>
                   <td>{{carro.placa}}</td>
