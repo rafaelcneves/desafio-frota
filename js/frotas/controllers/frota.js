@@ -1,8 +1,8 @@
 (function() {
   var app = angular.module("frota");
 
-  app.controller("FrotaController", function($scope, $filter){
-    $scope.products = frota;
+  app.controller("FrotaController", ["$scope", "$filter", "Frota", function($scope, $filter, Frota){
+    $scope.products = Frota.get();
     $scope.product = {};
 
     $scope.getImage = function(carro){
@@ -56,5 +56,5 @@
         $scope.products.splice(index, 1);
       }
     };
-  });
+  }]);
 })();
