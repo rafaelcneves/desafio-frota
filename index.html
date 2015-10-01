@@ -6,14 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Frota</title>
 
-    <!-- Bootstrap -->
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-    <link href="css/bootswatch-flatly.min.css" rel="stylesheet">
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/main.css" rel="stylesheet">
   </head>
 
   <body ng-controller="FrotaController">
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <a class="navbar-brand" href="#">Frota</a>
@@ -77,10 +75,16 @@
       <form id="edit" name="carroEditForm" class="form-horizontal modal fade" ng-submit="updateCarro()" carro-form></form>
     </div>
 
+    <!-- TODO: Remover jquery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/angular.min.js"></script>
-    <script type="text/javascript" src="js/ui-bootstrap-tpls-0.12.1.min.js"></script>
+    <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script type="text/javascript" src="js/frotas/app.js"></script>
+    <script type="text/javascript" src="js/frotas/controllers/frota.js"></script>
+    <script type="text/javascript" src="js/frotas/directives/carro_form.js"></script>
+    <script type="text/javascript" src="js/frotas/services/frota.js"></script>
   </body>
 </html>
