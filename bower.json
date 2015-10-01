@@ -1,0 +1,23 @@
+{
+  "name": "desafio-frota",
+  "version": "0.0.0",
+  "homepage": "https://github.com/rafaelcneves/desafio-frota",
+  "authors": [
+    "Rafael César Neves <rafael.neves@humantech.com.br>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "bootstrap": "~3.3.5"
+  }
+}
