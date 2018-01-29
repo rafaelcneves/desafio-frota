@@ -10,7 +10,6 @@
     }
 
     // Paging + search
-
     $scope.totalItems = $scope.products.length;
     $scope.currentPage = 1;
     $scope.itemsPerPage = 5;
@@ -30,7 +29,6 @@
     };
 
     // Crud Carro
-
     $scope.newCarro = function(){
       $scope.product = {};
       $("#new.modal").modal();
